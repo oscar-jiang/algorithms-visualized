@@ -1,20 +1,9 @@
 const RADIUS = 25;
 
 const graph = d3.select("#graph");
+
 var nodes = [];
 let nextId = 0; 
-
-// https://d3js.org/d3-drag#drag-events
-const drag = d3.drag().on('drag', function(event, d) {
-  // update the event's x and y in the array
-  d.x = event.x;
-  d.y = event.y;
-
-  // change the position of the node
-  d3.select(this)
-    .attr('cx', event.x)
-    .attr('cy', event.y);
-  });
 
 graph.on("click", 
   (event) => {
@@ -39,14 +28,31 @@ function deleteNode(event) {
   }
 }
 
+// https://d3js.org/d3-drag#drag-events
+const drag = d3.drag().on('drag', function(event, d) {
+  // update the event's x and y in the array
+  d.x = event.x;
+  d.y = event.y;
+
+  // change the position of the node
+  d3.select(this)
+    .attr('cx', event.x)
+    .attr('cy', event.y);
+
+  updateGraph();
+  });
+
 function addNode(event) {
   // Getting the properties
   const [x, y] = d3.pointer(event); // relative to the SVG graph coordinates
+  const id = nextId++
   let randomColour = getNextColour();
+  let textLabel = id;
 
   nodes.push({
-    id: nextId++,
+    id: id,
     colour: randomColour,
+    label: textLabel,
     x: x,
     y: y
   });
@@ -73,6 +79,26 @@ function updateGraph() {
       update => update
         .attr('cx', d => d.x)
         .attr('cy', d => d.y),
+
+      exit => exit.remove()
+    );
+
+  graph.selectAll('text.node-label')
+    .data(nodes, d => d.id)
+    .join( 
+      enter => enter.append('text')
+        .attr('class', 'node-label')
+        .attr("text-anchor", "middle")
+        .attr("fill", "black")
+        .attr('dy', '0.3em')
+        .attr('x', d => d.x)
+        .attr('y', d => d.y)
+        .text(d => d.label)
+        .call(drag),
+
+      update => update.text(d => d.label)
+        .attr('x' , d => d.x)
+        .attr('y', d => d.y),
 
       exit => exit.remove()
     );
