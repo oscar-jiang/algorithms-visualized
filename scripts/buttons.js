@@ -22,6 +22,8 @@ function switchToLink() {
 
 function resetCanvas() {
   nodes = [];
+  edges = [];
+  sourceNode = null;
   nextId = 0;
   updateGraph();
 }
