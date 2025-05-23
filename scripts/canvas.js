@@ -1,29 +1,72 @@
+
+// --- CONSTANTS ---
 const RADIUS = 25;
+const GRAPH = d3.select("#graph");
+// ---
 
-const graph = d3.select("#graph");
-
+// --- DATA STRCUTURES ---
+// A node is {id: int, colour: colour, label: String, x: double, y: double}
+// Nodes hold a list of nodes
 var nodes = [];
-let nextId = 0; 
 
-graph.on("click", 
+// Edges hold {source: node, destination: node}
+var edges = []; 
+// ---
+
+// --- VARIABLES ---
+let sourceNode = null;
+
+let nextId = 0;
+// --
+
+// FUNCTIONS
+GRAPH.on("click", 
   (event) => {
     if (drawingMode === 'draw') {
       addNode(event);
     } else if (drawingMode === 'delete') {
       deleteNode(event);
+    } else if (drawingMode === 'link') {
+      createEdge(event); 
     }
   });
+
+function createEdge(event) {
+  const [x,y] = d3.pointer(event);
+  const clickedNode = nodes.find((node) => {
+    return Math.sqrt((node.x - x) * (node.x - x)  + (node.y - y) * (node.y - y)) <= RADIUS;
+  });
+
+  if (sourceNode === null) {
+    sourceNode = clickedNode;
+  } else if (sourceNode.id !== clickedNode.id) {
+    edges.push({
+      source: sourceNode,
+      destination: clickedNode
+    });
+    updateGraph();
+
+    sourceNode = null;
+  } else {
+    sourceNode = null;
+  }
+}
 
 function deleteNode(event) {
   // https://stackoverflow.com/questions/16792841/detect-if-user-clicks-inside-a-circle
   const [x,y] = d3.pointer(event);
-  const radius = RADIUS;
   const index = nodes.findIndex((node) => {
-    return Math.sqrt((node.x - x) * (node.x - x)  + (node.y - y) * (node.y - y)) <= radius;
+    return Math.sqrt((node.x - x) * (node.x - x)  + (node.y - y) * (node.y - y)) <= RADIUS;
   });
+  const nodeToBeDeleted = nodes[index];
 
   if (index >= 0) {
     nodes.splice(index, 1);
+
+    edges = edges.filter(edge => {
+      return edge.source.id !== nodeToBeDeleted.id && edge.destination.id !== nodeToBeDeleted.id;
+    });
+
     updateGraph();
   }
 }
@@ -46,12 +89,12 @@ function addNode(event) {
   // Getting the properties
   const [x, y] = d3.pointer(event); // relative to the SVG graph coordinates
   const id = nextId++
-  let randomColour = getNextColour();
+  let colour = getNextColour();
   let textLabel = id;
 
   nodes.push({
     id: id,
-    colour: randomColour,
+    colour: colour,
     label: textLabel,
     x: x,
     y: y
@@ -62,7 +105,14 @@ function addNode(event) {
 
 // https://d3js.org/d3-selection/joining#selection_data
 function updateGraph() {
-  graph.selectAll('circle.node')
+  updateNodes();
+  updateEdges();
+  updateNodeLabels();
+}
+
+
+function updateNodes() {
+  GRAPH.selectAll('circle.node')
     .data(nodes, d => d.id)
     .join(
       enter => enter.append('circle')
@@ -82,8 +132,10 @@ function updateGraph() {
 
       exit => exit.remove()
     );
+}
 
-  graph.selectAll('text.node-label')
+function updateNodeLabels() {
+  GRAPH.selectAll('text.node-label')
     .data(nodes, d => d.id)
     .join( 
       enter => enter.append('text')
@@ -104,4 +156,65 @@ function updateGraph() {
     );
 }
 
+function updateEdges() {
+  GRAPH.selectAll('line.node-edge')
+  .data(edges)
+  .join(
+    enter => enter.append("line")
+      .attr('class', 'node-edge')
+      .attr('stroke', '#000000')
+      .attr('stroke-width', 3)
+      .attr('x1', d => {
+          const dx = d.destination.x - d.source.x;
+          const dy = d.destination.y - d.source.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          return d.source.x + (dx * RADIUS) / dist;
+        })
+      .attr('y1', d => {
+        const dx = d.destination.x - d.source.x;
+        const dy = d.destination.y - d.source.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return d.source.y + (dy * RADIUS) / dist;
+      })
+      .attr('x2', d => {
+        const dx = d.source.x - d.destination.x;
+        const dy = d.source.y - d.destination.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return d.destination.x + (dx * RADIUS) / dist
+      })
+      .attr('y2', d => {
+        const dx = d.source.x - d.destination.x;
+        const dy = d.source.y - d.destination.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return d.destination.y + (dy * RADIUS) / dist
+      }),
 
+    update => update
+      .attr('x1', d => {
+          const dx = d.destination.x - d.source.x;
+          const dy = d.destination.y - d.source.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          return d.source.x + (dx * RADIUS) / dist;
+        })
+      .attr('y1', d => {
+        const dx = d.destination.x - d.source.x;
+        const dy = d.destination.y - d.source.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return d.source.y + (dy * RADIUS) / dist;
+      })
+      .attr('x2', d => {
+        const dx = d.source.x - d.destination.x;
+        const dy = d.source.y - d.destination.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return d.destination.x + (dx * RADIUS) / dist
+      })
+      .attr('y2', d => {
+        const dx = d.source.x - d.destination.x;
+        const dy = d.source.y - d.destination.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        return d.destination.y + (dy * RADIUS) / dist
+      }),
+
+    exit => exit.remove()
+  );
+}
