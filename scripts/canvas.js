@@ -10,9 +10,8 @@ const WIDTH = 600;
 // A node is {id: int, colour: colour, label: String, x: double, y: double}
 // Nodes hold a list of nodes
 var nodes = [];
-
 // Edges hold {source: node, target: node}
-var edges = []; 
+var edges = [] 
 // ---
 
 // --- VARIABLES ---

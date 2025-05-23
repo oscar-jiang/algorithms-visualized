@@ -24,8 +24,13 @@
     font-family: Geologica, Arial, Helvetica, sans-serif;
 
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .base-button-sidebar:hover {
     background-color: rgb(199, 199, 199);
+}
+
+.js-h-h-button {
+    height: 90px;
 }
