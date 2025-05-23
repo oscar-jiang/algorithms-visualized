@@ -1,4 +1,4 @@
-<!DOCTYPE html>>
+<!DOCTYPE html>
 
 
 <html lang="en">
@@ -11,12 +11,27 @@
 
   <body>
 
-    <h1>Graph Editor</h1>
+    <div class="main-dashboard">
+      <h1>Graph Editor</h1>
 
-    <svg id="graph" width="800" height="600"></svg>
+      <div class="center-canvas">
+        <p class="right-paragraph">This is a graph editor</p>
+        <svg id="graph" width="800" height="600"></svg>
+        <p class="left-paragraph">Current drawing mode: Draw</p>
+      </div>
+      
+
+      <div class="js-tool-buttons">
+        <button class="js-draw-button">Draw</button>
+        <button class="js-delete-button">Delete</button>
+        <button class="js-reset-button">Reset Canvas</button>
+      </div>
+    </div>
+
 
     <script src="//d3js.org/d3.v7.min.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="scripts/canvas.js"></script>
     <script src="scripts/random-color.js"></script>
+    <script src="scripts/buttons.js"></script>
   </body>
 </html>
