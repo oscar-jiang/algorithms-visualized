@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Graph Editor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/graph-page.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+  </head>
+
+  <body>
+    <div class="header">
+        <div class="left-section">
+            <p class="home-algorithms">Algorithms Visualized</p>
+        </div>
+
+        <div class="middle-section">
+            <button class="base-button-header home-button">Home</button>
+            <button class="base-button-header about-button">About</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <button class="base-button-sidebar js-graph-editor-button"><img src="images/graph-editor-icon.svg"> Graph Editor</button>
+    </div>
+
+    <div class="main-dashboard">
+      <h1>Graph Editor</h1>
+
+      <div class="center-canvas">
+        <p class="right-paragraph">This undirected graph editor was created inspired by another graph editor I encounted in my data structures and algorithms class, UBC CPSC 221. Having created this project using JavaScript with the D3.js library, I aimed to challenge myself to improve my understanding of graphs and the Havel-Hakimi algorithm by extending this project into a game.</p>
+        <svg id="graph" width="600" height="400"></svg>
+        <p class="left-paragraph">Current drawing mode: Draw</p>
+      </div>
+      
+
+      <div class="js-tool-buttons">
+        <button class="js-draw-button">Draw</button>
+        <button class="js-delete-button">Delete</button>
+        <button class="js-link-button">Link</button>
+        <button class="js-reset-button">Reset Canvas</button>
+      </div>
+    </div>
+
+
+    <script src="//d3js.org/d3.v7.min.js"></script>
+    <script src="scripts/canvas.js"></script>
+    <script src="scripts/random-color.js"></script>
+    <script src="scripts/buttons.js"></script>
+  </body>
+</html>

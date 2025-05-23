@@ -1,0 +1,31 @@
+.sidebar {
+    background-color: white;
+    position: fixed;
+
+    width: 72px;
+    top: 55px;
+    left: 0px;
+    bottom: 0;
+
+    border-right-color: rgb(208, 208, 208);
+    border-right-style: solid;
+    border-right-width: 1px;
+} 
+
+.base-button-sidebar{
+    background-color: white;
+    border-style: none;
+
+    width: 72px;
+    height: 72px;
+
+    font-weight: 600;
+    font-size: 15px;
+    font-family: Geologica, Arial, Helvetica, sans-serif;
+
+    margin-top: 10px;
+}
+
+.base-button-sidebar:hover {
+    background-color: rgb(199, 199, 199);
+}
