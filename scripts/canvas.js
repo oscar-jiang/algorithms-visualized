@@ -1,7 +1,9 @@
 
 // --- CONSTANTS ---
-const RADIUS = 25;
+const RADIUS = 15;
 const GRAPH = d3.select("#graph");
+const HEIGHT = 800;
+const WIDTH = 600;
 // ---
 
 // --- DATA STRCUTURES ---
@@ -9,7 +11,7 @@ const GRAPH = d3.select("#graph");
 // Nodes hold a list of nodes
 var nodes = [];
 
-// Edges hold {source: node, destination: node}
+// Edges hold {source: node, target: node}
 var edges = []; 
 // ---
 
@@ -17,6 +19,20 @@ var edges = [];
 let sourceNode = null;
 
 let nextId = 0;
+
+// https://d3js.org/d3-drag#drag-events
+const drag = d3.drag().on('drag', function(event, d) {
+    // update the event's x and y in the array
+    d.x = event.x;
+    d.y = event.y;
+
+    // change the position of the node
+    d3.select(this)
+      .attr('cx', event.x)
+      .attr('cy', event.y);
+
+    updateGraph();
+  });
 // --
 
 // FUNCTIONS
@@ -37,12 +53,17 @@ function createEdge(event) {
     return Math.sqrt((node.x - x) * (node.x - x)  + (node.y - y) * (node.y - y)) <= RADIUS;
   });
 
+  if (!clickedNode) {
+    sourceNode = null;
+    return;
+  }
+
   if (sourceNode === null) {
     sourceNode = clickedNode;
   } else if (sourceNode.id !== clickedNode.id) {
     edges.push({
       source: sourceNode,
-      destination: clickedNode
+      target: clickedNode
     });
     updateGraph();
 
@@ -64,26 +85,12 @@ function deleteNode(event) {
     nodes.splice(index, 1);
 
     edges = edges.filter(edge => {
-      return edge.source.id !== nodeToBeDeleted.id && edge.destination.id !== nodeToBeDeleted.id;
+      return edge.source.id !== nodeToBeDeleted.id && edge.target.id !== nodeToBeDeleted.id;
     });
 
     updateGraph();
   }
 }
-
-// https://d3js.org/d3-drag#drag-events
-const drag = d3.drag().on('drag', function(event, d) {
-  // update the event's x and y in the array
-  d.x = event.x;
-  d.y = event.y;
-
-  // change the position of the node
-  d3.select(this)
-    .attr('cx', event.x)
-    .attr('cy', event.y);
-
-  updateGraph();
-  });
 
 function addNode(event) {
   // Getting the properties
@@ -128,7 +135,8 @@ function updateNodes() {
 
       update => update
         .attr('cx', d => d.x)
-        .attr('cy', d => d.y),
+        .attr('cy', d => d.y)
+        .call(drag),
 
       exit => exit.remove()
     );
@@ -165,54 +173,54 @@ function updateEdges() {
       .attr('stroke', '#000000')
       .attr('stroke-width', 3)
       .attr('x1', d => {
-          const dx = d.destination.x - d.source.x;
-          const dy = d.destination.y - d.source.y;
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           return d.source.x + (dx * RADIUS) / dist;
         })
       .attr('y1', d => {
-        const dx = d.destination.x - d.source.x;
-        const dy = d.destination.y - d.source.y;
+        const dx = d.target.x - d.source.x;
+        const dy = d.target.y - d.source.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         return d.source.y + (dy * RADIUS) / dist;
       })
       .attr('x2', d => {
-        const dx = d.source.x - d.destination.x;
-        const dy = d.source.y - d.destination.y;
+        const dx = d.source.x - d.target.x;
+        const dy = d.source.y - d.target.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        return d.destination.x + (dx * RADIUS) / dist
+        return d.target.x + (dx * RADIUS) / dist
       })
       .attr('y2', d => {
-        const dx = d.source.x - d.destination.x;
-        const dy = d.source.y - d.destination.y;
+        const dx = d.source.x - d.target.x;
+        const dy = d.source.y - d.target.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        return d.destination.y + (dy * RADIUS) / dist
+        return d.target.y + (dy * RADIUS) / dist
       }),
 
     update => update
       .attr('x1', d => {
-          const dx = d.destination.x - d.source.x;
-          const dy = d.destination.y - d.source.y;
+          const dx = d.target.x - d.source.x;
+          const dy = d.target.y - d.source.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           return d.source.x + (dx * RADIUS) / dist;
         })
       .attr('y1', d => {
-        const dx = d.destination.x - d.source.x;
-        const dy = d.destination.y - d.source.y;
+        const dx = d.target.x - d.source.x;
+        const dy = d.target.y - d.source.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         return d.source.y + (dy * RADIUS) / dist;
       })
       .attr('x2', d => {
-        const dx = d.source.x - d.destination.x;
-        const dy = d.source.y - d.destination.y;
+        const dx = d.source.x - d.target.x;
+        const dy = d.source.y - d.target.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        return d.destination.x + (dx * RADIUS) / dist
+        return d.target.x + (dx * RADIUS) / dist
       })
       .attr('y2', d => {
-        const dx = d.source.x - d.destination.x;
-        const dy = d.source.y - d.destination.y;
+        const dx = d.source.x - d.target.x;
+        const dy = d.source.y - d.target.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        return d.destination.y + (dy * RADIUS) / dist
+        return d.target.y + (dy * RADIUS) / dist
       }),
 
     exit => exit.remove()
