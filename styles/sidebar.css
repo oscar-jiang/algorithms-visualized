@@ -25,6 +25,7 @@
 
     margin-top: 10px;
     cursor: pointer;
+    transition: 0.15s;
 }
 
 .base-button-sidebar:hover {

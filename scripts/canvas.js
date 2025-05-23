@@ -11,7 +11,7 @@ const WIDTH = 600;
 // Nodes hold a list of nodes
 var nodes = [];
 // Edges hold {source: node, target: node}
-var edges = [] 
+var edges = [];
 // ---
 
 // --- VARIABLES ---
@@ -83,6 +83,7 @@ function deleteNode(event) {
   if (index >= 0) {
     nodes.splice(index, 1);
 
+    // Find out which edges are connected to the node that is being deleted using an arbitary function 
     edges = edges.filter(edge => {
       return edge.source.id !== nodeToBeDeleted.id && edge.target.id !== nodeToBeDeleted.id;
     });
@@ -96,7 +97,7 @@ function addNode(event) {
   const [x, y] = d3.pointer(event); // relative to the SVG graph coordinates
   const id = nextId++
   let colour = getNextColour();
-  let textLabel = id;
+  let textLabel = nodes.length;
 
   nodes.push({
     id: id,

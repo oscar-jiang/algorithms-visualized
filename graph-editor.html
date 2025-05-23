@@ -38,18 +38,33 @@
       <h1>Graph Editor</h1>
 
       <div class="center-canvas">
-        <p class="right-paragraph">This undirected graph editor was created inspired by another graph editor I encounted in my data structures and algorithms class, UBC CPSC 221. Having created this project using JavaScript with the D3.js library, I aimed to challenge myself to improve my understanding of graphs and the Havel-Hakimi algorithm by extending this project into a game.</p>
-        <svg id="graph" width="600" height="400"></svg>
-        <p class="left-paragraph">Current drawing mode: Draw</p>
+        <!-- <p class="right-paragraph">This undirected graph editor was created inspired by another graph editor I encounted in my data structures and algorithms class, UBC CPSC 221. Having created this project using JavaScript with the D3.js library, I aimed to challenge myself to improve my understanding of graphs and the Havel-Hakimi algorithm by extending this project into a game.</p> -->
+        <div class="canvas"><svg id="graph" width="600" height="400"></svg></div>
+        
+        <div class="js-control-panel">
+          <div class="control-panel-info-board">
+            <h2 class="control-panel-heading">Controls</h1>
+            <p class="left-paragraph">Current drawing mode: Draw</p>
+            <p class="js-control-panel-info-about-buttons">In Draw mode you can click anywhere on the canvas to place a node.</p>
+
+            <p class="extra-info">You can play around with the nodes by moving them around, deleting them, or creating a edge between nodes. Use the buttons below to change modes. The current mode is displayed at the top.</p>
+          </div>
+          <div class="js-tool-buttons">
+            <div class="js-tool-buttons-draw-buttons">
+              <button class="base-control-tool-buttons base-draw-buttons js-draw-button">Draw</button>
+              <button class="base-control-tool-buttons base-draw-buttons js-delete-button">Delete</button>
+              <button class="base-control-tool-buttons base-draw-buttons js-link-button">Link</button>
+            </div>
+            
+            <div class="js-tool-buttons-reset-button">
+              <button class="base-control-tool-buttons js-reset-button">RESET CANVAS</button>
+            </div>
+          </div>
+        </div>
       </div>
       
 
-      <div class="js-tool-buttons">
-        <button class="js-draw-button">Draw</button>
-        <button class="js-delete-button">Delete</button>
-        <button class="js-link-button">Link</button>
-        <button class="js-reset-button">Reset Canvas</button>
-      </div>
+
     </div>
 
 
