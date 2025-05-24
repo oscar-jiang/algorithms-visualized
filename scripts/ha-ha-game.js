@@ -9,13 +9,13 @@ const WIDTH = 600;
 // --- DATA STRCUTURES ---
 // A node is {
 //     "id": int,
-//     "colour": "#8679F3" -- hex colour,
+//     "colour": "#8679F3" -- hex colour -- String,
 //     "label": int,
 //     "requiredDegree": int;
 //     "remainingDegree": int;
 //     "degree": int,
-//     "x": 57.5,
-//     "y": 51.125,
+//     "x": int,
+//     "y": int,
 //     "wellConnected": boolean
 // }
 // Nodes hold a list of nodes
@@ -46,7 +46,7 @@ const drag = d3.drag().on('drag', function(event, d) {
 // --
 
 // init
-loadGraph(levelFive());
+loadGraph(level1());
 
 GRAPH.on("click", 
   (event) => {
@@ -62,6 +62,7 @@ function loadGraph(level) {
   nodes = level.nodes;
   currentLevel = level.level;
   isLevelComplete = false;
+  edges = [];
   updateGraph(); 
 }
 

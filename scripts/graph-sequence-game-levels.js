@@ -1,4 +1,4 @@
-const levelOne = function() {
+const level1 = function() {
   return {
     level: 1,
     degreeSequence: [1, 2, 1],
@@ -10,7 +10,7 @@ const levelOne = function() {
   };
 };
 
-const levelTwo = function() {
+const level2 = function() {
   return {
     level: 2,
     degreeSequence: [2, 2, 2, 2],
@@ -23,7 +23,7 @@ const levelTwo = function() {
   };
 };
 
-const levelThree = function() {
+const level3 = function() {
   return {
     level: 3,
     degreeSequence: [3, 2, 2, 1, 2],
@@ -37,7 +37,7 @@ const levelThree = function() {
   };
 };
 
-const levelFour = function() {
+const level4 = function() {
   return {
     level: 4,
     degreeSequence: [3, 3, 2, 1, 2, 2],
@@ -52,7 +52,7 @@ const levelFour = function() {
   };
 };
 
-const levelFive = function() {
+const level5 = function() {
   return {
     level: 5,
     degreeSequence: [4, 3, 2, 1, 2, 2, 3],
@@ -68,7 +68,7 @@ const levelFive = function() {
   };
 };
 
-const levelSix = function() {
+const level6 = function() {
   return {
     level: 6,
     degreeSequence: [3, 3, 3, 3, 2, 2, 2],
@@ -84,7 +84,7 @@ const levelSix = function() {
   };
 };
 
-const levelSeven = function() {
+const level7 = function() {
   return {
     level: 7,
     degreeSequence: [4, 3, 3, 3, 3, 2, 2, 2],
@@ -101,7 +101,7 @@ const levelSeven = function() {
   };
 };
 
-const levelEight = function() {
+const level8 = function() {
   return {
     level: 8,
     degreeSequence: [4, 4, 3, 3, 3, 3, 2, 2, 2],
@@ -119,7 +119,7 @@ const levelEight = function() {
   };
 };
 
-const levelNine = function() {
+const level9 = function() {
   return {
     level: 9,
     degreeSequence: [5, 4, 4, 3, 3, 3, 3, 2, 2, 2],
@@ -138,7 +138,7 @@ const levelNine = function() {
   };
 };
 
-const levelTen = function() {
+const level10 = function() {
   return {
     level: 10,
     // Impossible degree sequence: sum is odd (15), can't be realized by edges
