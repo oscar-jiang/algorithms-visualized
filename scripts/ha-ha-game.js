@@ -74,6 +74,10 @@ function createEdge(event) {
     return Math.sqrt((node.x - x) * (node.x - x)  + (node.y - y) * (node.y - y)) <= RADIUS;
   });
 
+  // TODO
+  // In the game, we can create duplicate edges.
+  // Fix the bug. (I think there is a similar issue with the graph editor).
+
   if (!clickedNode) {
     sourceNode = null;
     return;
@@ -84,9 +88,13 @@ function createEdge(event) {
     return;
   }
 
+
+
   if (sourceNode === null) {
     sourceNode = clickedNode;
   } else if (sourceNode.id !== clickedNode.id) {
+
+
     edges.push({
       source: sourceNode,
       target: clickedNode
