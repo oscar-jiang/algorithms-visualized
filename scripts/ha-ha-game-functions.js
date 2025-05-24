@@ -19,7 +19,7 @@ function isEmpty(arr) {
 // arr => boolean
 function havelHakimiAlgorithm(arr) {
   while (arr.length > 0) {
-    const sortedArr = MergeSort(arr).reverse();
+    const sortedArr = mergeSort(arr).reverse();
 
     if (sortedArr[0] === 0) {
       return true; 
