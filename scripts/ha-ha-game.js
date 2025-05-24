@@ -62,6 +62,8 @@ function loadGraph(level) {
   nodes = level.nodes;
   currentLevel = level.level;
   isLevelComplete = false;
+  document.querySelector(".extra-info-status").innerHTML = `Status: <span class="status-non-complete">👎Not Complete❌</span>`;
+  document.querySelector('.havel-hakimi-info-output').innerHTML = ``;
   edges = [];
   updateGraph(); 
 }

@@ -127,11 +127,6 @@ body {
     margin-bottom: 0px;
 }
 
-.center-canvas {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 .right-paragraph {
     margin-right: 10px;
     margin-left: 10px;
@@ -168,7 +163,6 @@ body {
     border-width: 1px;
 
     width: 875px;
-    height: 175px;
 }
 
 .graph-sequence-level-buttons-row {
@@ -188,5 +182,30 @@ body {
 }
 
 .status-complete {
-    color: rgb(0, 193, 0);
+    color: rgb(0, 190, 0);
+}
+
+.graph-editor-level-section {
+    min-height: 200px;
+}
+
+.havel-hakimi-info{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.havel-hakimi-info-output {
+    margin-left: 10px;
+}
+
+.hh-success {
+    color: rgb(0, 190, 0);
+}
+
+.hh-unsuccess {
+    color: rgb(190, 0, 0);
+}
+
+.js-check-graph:hover {
+    background-color: #F4F4F4;
 }

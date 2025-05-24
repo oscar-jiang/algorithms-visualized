@@ -45,7 +45,7 @@ const level4 = function() {
       { id: 0, colour: "#8679F3", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 150, y: 150, wellConnected: false },
       { id: 1, colour: "#E579F3", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 200, y: 90, wellConnected: false },
       { id: 2, colour: "#79F3C1", label: "2", requiredDegree: 2, remainingDegree: 2, degree: 0, x: 250, y: 150, wellConnected: false },
-      { id: 3, colour: "#F3E679", label: "1", requiredDegree: 1, remainingDegree: 1, degree: 0, x: 300, y: 90, wellConnected: false },
+      { id: 3, colour: "#F3E679", label: "1", requiredDegree: 1, remainingDegree: 1, degree: 0, x: 300, y:  90, wellConnected: false },
       { id: 4, colour: "#79B3F3", label: "2", requiredDegree: 2, remainingDegree: 2, degree: 0, x: 275, y: 200, wellConnected: false },
       { id: 5, colour: "#F37979", label: "2", requiredDegree: 2, remainingDegree: 2, degree: 0, x: 225, y: 210, wellConnected: false }
     ]
@@ -58,9 +58,9 @@ const level5 = function() {
     degreeSequence: [4, 3, 2, 1, 2, 2, 3],
     nodes: [
       { id: 0, colour: "#8679F3", label: "4", requiredDegree: 4, remainingDegree: 4, degree: 0, x: 150, y: 150, wellConnected: false },
-      { id: 1, colour: "#E579F3", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 200, y: 90, wellConnected: false },
+      { id: 1, colour: "#E579F3", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 200, y:  90, wellConnected: false },
       { id: 2, colour: "#79F3C1", label: "2", requiredDegree: 2, remainingDegree: 2, degree: 0, x: 250, y: 150, wellConnected: false },
-      { id: 3, colour: "#F3E679", label: "1", requiredDegree: 1, remainingDegree: 1, degree: 0, x: 300, y: 90, wellConnected: false },
+      { id: 3, colour: "#F3E679", label: "1", requiredDegree: 1, remainingDegree: 1, degree: 0, x: 300, y:  90, wellConnected: false },
       { id: 4, colour: "#79B3F3", label: "2", requiredDegree: 2, remainingDegree: 2, degree: 0, x: 275, y: 200, wellConnected: false },
       { id: 5, colour: "#F37979", label: "2", requiredDegree: 2, remainingDegree: 2, degree: 0, x: 225, y: 210, wellConnected: false },
       { id: 6, colour: "#9FF379", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 180, y: 200, wellConnected: false }
@@ -125,9 +125,9 @@ const level9 = function() {
     degreeSequence: [5, 4, 4, 3, 3, 3, 3, 2, 2, 2],
     nodes: [
       { id: 0, colour: "#8679F3", label: "5", requiredDegree: 5, remainingDegree: 5, degree: 0, x: 130, y: 130, wellConnected: false },
-      { id: 1, colour: "#E579F3", label: "4", requiredDegree: 4, remainingDegree: 4, degree: 0, x: 180, y: 90, wellConnected: false },
+      { id: 1, colour: "#E579F3", label: "4", requiredDegree: 4, remainingDegree: 4, degree: 0, x: 180, y:  90, wellConnected: false },
       { id: 2, colour: "#79F3C1", label: "4", requiredDegree: 4, remainingDegree: 4, degree: 0, x: 230, y: 130, wellConnected: false },
-      { id: 3, colour: "#F3E679", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 280, y: 90, wellConnected: false },
+      { id: 3, colour: "#F3E679", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 280, y:  90, wellConnected: false },
       { id: 4, colour: "#79B3F3", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 330, y: 130, wellConnected: false },
       { id: 5, colour: "#F37979", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 280, y: 180, wellConnected: false },
       { id: 6, colour: "#9FF379", label: "3", requiredDegree: 3, remainingDegree: 3, degree: 0, x: 180, y: 180, wellConnected: false },
@@ -141,7 +141,6 @@ const level9 = function() {
 const level10 = function() {
   return {
     level: 10,
-    // Impossible degree sequence: sum is odd (15), can't be realized by edges
     degreeSequence: [5, 5, 3, 2],
     nodes: [
       { id: 0, colour: "#8679F3", label: "5", requiredDegree: 5, remainingDegree: 5, degree: 0, x: 150, y: 150, wellConnected: false },
