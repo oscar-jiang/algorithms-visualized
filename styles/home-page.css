@@ -1,0 +1,12 @@
+.home-page-main-container {
+
+  width: 875px;
+  height: 700px;
+
+  margin: 110px;
+}
+
+.home-page-title-text {
+  display: flex;
+  justify-content: center;
+}
