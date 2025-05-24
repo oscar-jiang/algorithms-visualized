@@ -7,3 +7,6 @@ document.querySelector('.js-home-button').addEventListener('click', () => {
 document.querySelector('.js-about-button').addEventListener('click', () => {
     location.href='about-page.html';
 });
+document.querySelector('.js-h-h-button').addEventListener('click', () => {
+    location.href='havel-hakimi-game.html';
+});

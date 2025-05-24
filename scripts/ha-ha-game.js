@@ -7,7 +7,7 @@ const WIDTH = 600;
 // ---
 
 // --- DATA STRCUTURES ---
-// A node is {id: int, colour: colour, degree: int, label: String, x: double, y: double}
+// A node is {id: int, colour: colour, requiredDegree:int, degree: int, label: String, x: double, y: double, wellConnected: boolean}
 // Nodes hold a list of nodes
 var nodes = [];
 // Edges hold {source: node, target: node}
@@ -33,6 +33,8 @@ const drag = d3.drag().on('drag', function(event, d) {
     updateGraph();
   });
 // --
+
+updateGraph();
 
 // FUNCTIONS
 GRAPH.on("click", 
@@ -122,9 +124,11 @@ let degree = 0;
     id: id,
     colour: colour,
     label: textLabel,
+    requiredDegree: 0,
     degree: degree,
     x: x,
-    y: y
+    y: y,
+    wellConnected: true
   });
 
   updateGraph(); 
@@ -185,6 +189,7 @@ function updateNodeLabels() {
 }
 
 function updateEdges() {
+  // uses trig to determine that the edge starts and ends at the edge of the circle
   GRAPH.selectAll('line.node-edge')
   .data(edges)
   .join(
@@ -246,3 +251,4 @@ function updateEdges() {
     exit => exit.remove()
   );
 }
+

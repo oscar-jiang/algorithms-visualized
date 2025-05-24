@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Havel-Hakimi Game | Algorithms Visualized</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/graph-page.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+  </head>
+
+  <body>
+    <div class="header">
+        <div class="left-section">
+            <p class="home-algorithms">Algorithms Visualized</p>
+        </div>
+
+        <div class="middle-section">
+            <button class="base-button-header js-home-button">Home</button>
+            <button class="base-button-header js-about-button">About</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <button class="base-button-sidebar js-graph-editor-button"><img src="images/graph-editor-icon.svg"> Graph Editor</button>
+        <button class="base-button-sidebar js-h-h-button"><img src="images/havel-hakimi-icon.svg"> Havel-Hakimi Game</button>
+        <button class="base-button-sidebar js-sorting-button"><img src="images/sorting-algo-icon.svg"> Sorting</button>
+    </div>
+
+    <div class="main-dashboard">
+      <h1>Graph Sequence Game</h1>
+
+      <div class="center-canvas">
+        <div class="canvas"><svg id="graph" width="600" height="400"></svg></div>
+        
+        <div class="js-control-panel">
+          <div class="control-panel-info-board">
+            <h2 class="control-panel-heading">Controls</h1>
+            <p class="left-paragraph">Current drawing mode: Draw</p>
+            <p class="js-control-panel-info-about-buttons">In Draw mode you can click anywhere on the canvas to place a node.</p>
+
+            <p class="extra-info">You can play around with the nodes by moving them around, deleting them, or creating a edge between nodes. Use the buttons below to change modes. The current mode is displayed at the top.</p>
+          </div>
+          <div class="js-tool-buttons">
+            <div class="js-tool-buttons-draw-buttons">
+              <button class="base-control-tool-buttons base-draw-buttons js-draw-button">Draw</button>
+              <button class="base-control-tool-buttons base-draw-buttons js-delete-button">Delete</button>
+              <button class="base-control-tool-buttons base-draw-buttons js-link-button">Link</button>
+            </div>
+            
+            <div class="js-tool-buttons-reset-button">
+              <button class="base-control-tool-buttons js-reset-button">RESET CANVAS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="graph-editor-about-section">
+        <div>
+          <h2 class="about-heading">About</h2>
+        </div>
+        <div>
+
+        </div>
+          <p class="right-paragraph">The graph sequence game.</p>
+      </div>
+    </div>
+
+    <script src="scripts/sorting-algorithms.js"></script>
+    <script src="//d3js.org/d3.v7.min.js"></script>
+    <script src="scripts/random-color.js"></script>
+    <script src="scripts/buttons.js"></script>
+    <script src="scripts/header-sidebar-buttons.js"></script>
+    <script src="scripts/ha-ha-game.js"></script>
+    <script src="scripts/ha-ha-game-functions.js"></script>
+  </body>
+</html>
