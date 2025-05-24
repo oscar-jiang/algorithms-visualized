@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/graph-page.css">
+    <link rel="stylesheet" href="styles/graph-sequence-page.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/general.css">
     <link rel="stylesheet" href="styles/sidebar.css">
@@ -43,15 +43,13 @@
         <div class="js-control-panel">
           <div class="control-panel-info-board">
             <h2 class="control-panel-heading">Controls</h1>
-            <p class="left-paragraph">Current drawing mode: Draw</p>
-            <p class="js-control-panel-info-about-buttons">In Draw mode you can click anywhere on the canvas to place a node.</p>
+            <p class="left-paragraph">Current drawing mode: Link</p>
+            <p class="js-control-panel-info-about-buttons">In Link mode you can click one node and then another node to place an edge.</p>
 
             <p class="extra-info">You can play around with the nodes by moving them around, deleting them, or creating a edge between nodes. Use the buttons below to change modes. The current mode is displayed at the top.</p>
           </div>
           <div class="js-tool-buttons">
             <div class="js-tool-buttons-draw-buttons">
-              <button class="base-control-tool-buttons base-draw-buttons js-draw-button">Draw</button>
-              <button class="base-control-tool-buttons base-draw-buttons js-delete-button">Delete</button>
               <button class="base-control-tool-buttons base-draw-buttons js-link-button">Link</button>
             </div>
             
@@ -62,21 +60,40 @@
         </div>
       </div>
 
+      <div class="graph-editor-about-section graph-editor-level-section">
+        <div>
+          <h2 class="about-heading">Levels</h2>
+        </div>
+        
+        <div class="graph-sequence-level-buttons-row">
+          <button class="graph-sequence-level-buttons-level-one">Level 1</button>
+          <button class="graph-sequence-level-buttons-level-two">Level 2</button>
+          <button class="graph-sequence-level-buttons-level-three">Level 3</button>
+          <button class="graph-sequence-level-buttons-level-four">Level 4</button>
+          <button class="graph-sequence-level-buttons-level-five">Level 5</button>
+          <button class="graph-sequence-level-buttons-level-six">Level 6</button>
+          <button class="graph-sequence-level-buttons-level-seven">Level 7</button>
+          <button class="graph-sequence-level-buttons-level-eight">Level 8</button>
+          <button class="graph-sequence-level-buttons-level-nine">Level 9</button>
+          <button class="graph-sequence-level-buttons-level-ten">Level 10</button>
+        </div>
+      </div>
+
       <div class="graph-editor-about-section">
         <div>
           <h2 class="about-heading">About</h2>
         </div>
         <div>
-
-        </div>
           <p class="right-paragraph">The graph sequence game.</p>
+        </div>
       </div>
     </div>
 
     <script src="scripts/sorting-algorithms.js"></script>
+    <script src="scripts/graph-sequence-game-levels.js"></script>
     <script src="//d3js.org/d3.v7.min.js"></script>
     <script src="scripts/random-color.js"></script>
-    <script src="scripts/buttons.js"></script>
+    <script src="scripts/buttons-graph-sequence-game.js"></script>
     <script src="scripts/header-sidebar-buttons.js"></script>
     <script src="scripts/ha-ha-game.js"></script>
     <script src="scripts/ha-ha-game-functions.js"></script>

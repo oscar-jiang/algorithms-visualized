@@ -7,7 +7,17 @@ const WIDTH = 600;
 // ---
 
 // --- DATA STRCUTURES ---
-// A node is {id: int, colour: colour, requiredDegree:int, degree: int, label: String, x: double, y: double, wellConnected: boolean}
+// A node is {
+//     "id": int,
+//     "colour": "#8679F3" -- hex colour,
+//     "label": int,
+//     "requiredDegree": int;
+//     "remainingDegree": int;
+//     "degree": int,
+//     "x": 57.5,
+//     "y": 51.125,
+//     "wellConnected": boolean
+// }
 // Nodes hold a list of nodes
 var nodes = [];
 // Edges hold {source: node, target: node}
@@ -16,8 +26,9 @@ var edges = [];
 
 // --- VARIABLES ---
 let sourceNode = null;
-
-let nextId = 0;
+var isLevelComplete = false;
+var currentLevel = 1;
+var drawingMode = 'link';
 
 // https://d3js.org/d3-drag#drag-events
 const drag = d3.drag().on('drag', function(event, d) {
@@ -34,19 +45,25 @@ const drag = d3.drag().on('drag', function(event, d) {
   });
 // --
 
-updateGraph();
+// init
+loadGraph(levelFive());
 
-// FUNCTIONS
 GRAPH.on("click", 
   (event) => {
-    if (drawingMode === 'draw') {
-      addNode(event);
-    } else if (drawingMode === 'delete') {
-      deleteNode(event);
-    } else if (drawingMode === 'link') {
+    if (drawingMode === 'link') {
       createEdge(event); 
     }
   });
+// --
+
+
+// FUNCTIONS
+function loadGraph(level) {
+  nodes = level.nodes;
+  currentLevel = level.level;
+  isLevelComplete = false;
+  updateGraph(); 
+}
 
 function createEdge(event) {
   const [x,y] = d3.pointer(event);
@@ -55,6 +72,11 @@ function createEdge(event) {
   });
 
   if (!clickedNode) {
+    sourceNode = null;
+    return;
+  }
+
+  if (clickedNode.remainingDegree === 0) {
     sourceNode = null;
     return;
   }
@@ -68,11 +90,26 @@ function createEdge(event) {
     });
 
     sourceNode.degree++;
-    sourceNode.label = sourceNode.degree;
+    sourceNode.remainingDegree--;
+    sourceNode.label = sourceNode.remainingDegree;
     clickedNode.degree++;
-    clickedNode.label = clickedNode.degree;
+    clickedNode.remainingDegree--;
+    clickedNode.label = clickedNode.remainingDegree;
+
+    if (sourceNode.degree === sourceNode.requiredDegree) {
+      sourceNode.wellConnected = true;
+    }
+    if (clickedNode.degree === clickedNode.requiredDegree) {
+      clickedNode.wellConnected = true;
+    }
 
     updateGraph();
+    isLevelComplete = isAllWellConnected();
+
+    if (isLevelComplete) {
+      alert("Level complete!");
+      isLevelComplete = false;
+    }
 
     sourceNode = null;
   } else {
@@ -80,58 +117,8 @@ function createEdge(event) {
   }
 }
 
-function deleteNode(event) {
-  // https://stackoverflow.com/questions/16792841/detect-if-user-clicks-inside-a-circle
-  const [x,y] = d3.pointer(event);
-  const index = nodes.findIndex((node) => {
-    return Math.sqrt((node.x - x) * (node.x - x)  + (node.y - y) * (node.y - y)) <= RADIUS;
-  });
-  const nodeToBeDeleted = nodes[index];
-
-  if (index >= 0) { 
-    // updates the degree in O(n) time--performance fix maybe? 
-    edges.forEach((edge, index) => {
-      if (edge.source.id === nodeToBeDeleted.id) {
-        edge.target.degree--;
-        edge.target.label = edge.target.degree;
-      } else if (edge.target.id === nodeToBeDeleted.id) {
-        edge.source.degree--;
-        edge.source.label = edge.source.degree;
-      }
-    });
-    
-    nodes.splice(index, 1);
-
-    // Find out which edges are connected to the node that is being deleted using an arbitary function 
-    edges = edges.filter(edge => {
-      return edge.source.id !== nodeToBeDeleted.id && edge.target.id !== nodeToBeDeleted.id;
-    });
-
-    updateGraph();
-  }
-}
-
-function addNode(event) {
-  // Getting the properties
-  const [x, y] = d3.pointer(event); // relative to the SVG graph coordinates
-  const id = nextId++
-let degree = 0;
-  let colour = getNextColour();
-  let textLabel = degree;
-
-
-  nodes.push({
-    id: id,
-    colour: colour,
-    label: textLabel,
-    requiredDegree: 0,
-    degree: degree,
-    x: x,
-    y: y,
-    wellConnected: true
-  });
-
-  updateGraph(); 
+function isAllWellConnected() {
+  return nodes.every(node => node.wellConnected);
 }
 
 // https://d3js.org/d3-selection/joining#selection_data
@@ -251,4 +238,3 @@ function updateEdges() {
     exit => exit.remove()
   );
 }
-
