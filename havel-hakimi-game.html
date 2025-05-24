@@ -30,7 +30,7 @@
 
     <div class="sidebar">
         <button class="base-button-sidebar js-graph-editor-button"><img src="images/graph-editor-icon.svg"> Graph Editor</button>
-        <button class="base-button-sidebar js-h-h-button"><img src="images/havel-hakimi-icon.svg"> Havel-Hakimi Game</button>
+        <button class="base-button-sidebar js-h-h-button"><img src="images/havel-hakimi-icon.svg">Havel-Hakimi Game</button>
         <button class="base-button-sidebar js-sorting-button"><img src="images/sorting-algo-icon.svg"> Sorting</button>
     </div>
 
@@ -42,19 +42,17 @@
         
         <div class="js-control-panel">
           <div class="control-panel-info-board">
-            <h2 class="control-panel-heading">Controls</h1>
-            <p class="left-paragraph">Current drawing mode: Link</p>
+            <h2 class="control-panel-heading">🔧Controls</h1>
+            <p class="left-paragraph">Current drawing mode: 🔗Link</p>
             <p class="js-control-panel-info-about-buttons">In Link mode you can click one node and then another node to place an edge.</p>
 
-            <p class="extra-info">You can play around with the nodes by moving them around, deleting them, or creating a edge between nodes. Use the buttons below to change modes. The current mode is displayed at the top.</p>
+            <p class="extra-info">You can move the nodes to different places on the graph.</p>
+
+            <p class="extra-info extra-info-status">Status: <span class="status-non-complete">👎Not Complete❌</span></p>
           </div>
           <div class="js-tool-buttons">
-            <div class="js-tool-buttons-draw-buttons">
-              <button class="base-control-tool-buttons base-draw-buttons js-link-button">Link</button>
-            </div>
-            
             <div class="js-tool-buttons-reset-button">
-              <button class="base-control-tool-buttons js-reset-button">RESET CANVAS</button>
+              <button class="base-control-tool-buttons js-reset-button">🔄 RESET CANVAS</button>
             </div>
           </div>
         </div>
@@ -62,29 +60,44 @@
 
       <div class="graph-editor-about-section graph-editor-level-section">
         <div>
-          <h2 class="about-heading">Levels</h2>
+          <h2 class="about-heading">🧩Levels</h2>
         </div>
         
         <div class="graph-sequence-level-buttons-row">
-          <button class="graph-sequence-level-buttons-level-one">Level 1</button>
-          <button class="graph-sequence-level-buttons-level-two">Level 2</button>
-          <button class="graph-sequence-level-buttons-level-three">Level 3</button>
-          <button class="graph-sequence-level-buttons-level-four">Level 4</button>
-          <button class="graph-sequence-level-buttons-level-five">Level 5</button>
-          <button class="graph-sequence-level-buttons-level-six">Level 6</button>
-          <button class="graph-sequence-level-buttons-level-seven">Level 7</button>
-          <button class="graph-sequence-level-buttons-level-eight">Level 8</button>
-          <button class="graph-sequence-level-buttons-level-nine">Level 9</button>
-          <button class="graph-sequence-level-buttons-level-ten">Level 10</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-one">🎯Level 1</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-two">🎯Level 2</button>
+          <button class="base-control-tool-buttons graph-sequence-level-buttons-level-three">🎯Level 3</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-four">🎯Level 4</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-five">🎯Level 5</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-six">🎯Level 6</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-seven">🎯Level 7</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-eight">🎯Level 8</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-nine">🎯Level 9</button>
+          <button class="base-control-tool-buttons base-level-buttons graph-sequence-level-buttons-level-ten">🎯Level 10</button>
+        </div>
+
+        <div>
+          <h2 class="about-heading">
+            🤔Is this graph possible to link?
+          </h2>
+        </div>
+        <div>
+          <p class="right-paragraph">We can use the Havel-Hakimi Algorithm to determine if a given sequence of non-negative integers can be used to represent a simple undirected graph. Use the button below to check.</p>
+            <div>
+              <button class="base-control-tool-buttons js-check-graph">
+                Havel-Hakimi
+              </button>
+            </div>
         </div>
       </div>
 
       <div class="graph-editor-about-section">
         <div>
-          <h2 class="about-heading">About</h2>
+          <h2 class="about-heading">👋About</h2>
         </div>
         <div>
           <p class="right-paragraph">The graph sequence game.</p>
+          <p class="right-paragraph"></p>
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@ var levels = [null, level1, level2, level3, level4, level5, level6, level7, leve
 
 function resetCanvas() {
   loadGraph(levels[currentLevel]());
+  document.querySelector(".extra-info-status").innerHTML = `Status: <span class="status-non-complete">👎Not Complete❌</span>`;
 }
 
 function loadLevel(levelNumber) {

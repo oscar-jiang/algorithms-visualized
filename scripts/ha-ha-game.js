@@ -108,8 +108,7 @@ function createEdge(event) {
     isLevelComplete = isAllWellConnected();
 
     if (isLevelComplete) {
-      alert("Level complete!");
-      isLevelComplete = false;
+      document.querySelector(".extra-info-status").innerHTML = `Status: <span class="status-complete">👏Completed🎉</span>`
     }
 
     sourceNode = null;

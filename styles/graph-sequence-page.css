@@ -29,7 +29,7 @@ body {
 
 .left-paragraph {
     margin: 0;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .control-panel-info-board {
@@ -102,6 +102,8 @@ body {
     border-style: solid;
     border-width: 1px;
 
+    height: 25px;
+
     cursor: pointer;
     transition: 0.15s;
 }
@@ -114,7 +116,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .js-tool-buttons {
@@ -134,7 +136,7 @@ body {
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .about-heading {
@@ -146,6 +148,8 @@ body {
 .js-reset-button {
     background-color: #fe5555;
     color: rgb(255, 255, 255);
+    height: 50px;
+    font-size: 18px;
 }
 
 .js-reset-button:hover {
@@ -165,4 +169,24 @@ body {
 
     width: 875px;
     height: 175px;
+}
+
+.graph-sequence-level-buttons-row {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.base-level-buttons:hover {
+    background-color: #F4F4F4;
+}
+
+.status-non-complete {
+    color: rgb(190, 0, 0);
+}
+
+.status-complete {
+    color: rgb(0, 193, 0);
 }
