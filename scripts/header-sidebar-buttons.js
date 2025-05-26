@@ -13,3 +13,6 @@ document.querySelector('.js-h-h-button').addEventListener('click', () => {
 document.querySelector('.js-sorting-button').addEventListener('click', () => {
     location.href='sorting.html';
 });
+document.querySelector('.js-github-button').addEventListener('click', () => {
+    location.href='https://github.com/oscar-jiang/silver-fishstick';
+});
