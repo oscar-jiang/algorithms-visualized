@@ -17,8 +17,7 @@ function displayArray() {
     .attr('y', d => HEIGHT - d * 4)
     .attr('fill', 'lightblue');
 }
-
-function displayArraySelectionSort() {
+function displaySortedArray() {
   const length = arrayToBeSorted.length;
 
   GRAPH.selectAll('rect')
@@ -28,5 +27,28 @@ function displayArraySelectionSort() {
     .attr('height', d => d * 4)
     .attr('x', (d, i) => i * (WIDTH / length))
     .attr('y', d => HEIGHT - d * 4)
-    .attr('fill', 'lightblue');
+    .attr('fill', 'green');
+}
+
+function displayArraySelectionSort(currentElement, minElement) {
+  const length = arrayToBeSorted.length;
+
+  GRAPH.selectAll('rect')
+    .data(arrayToBeSorted)
+    .join('rect')
+    .attr('width', WIDTH / length - 2)
+    .attr('height', d => d * 4)
+    .attr('x', (d, i) => i * (WIDTH / length))
+    .attr('y', d => HEIGHT - d * 4)
+    .attr('fill', (d,i) => {
+      if (i === currentElement) {
+        return 'aqua';
+      } else if (i === minElement) {
+         return 'aquamarine'
+      } else if ( i < currentElement){
+        return 'green';
+      } else {
+        return 'lightblue';
+      }
+    });
 }

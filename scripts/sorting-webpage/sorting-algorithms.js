@@ -20,7 +20,8 @@ function generateRandomArray(n) {
   arrayToBeSorted = [];
 
   for (let i = 0; i < n; i++) {
-    arrayToBeSorted.push(getIntFromRange(MIN, MAX));
+    let int = getIntFromRange(MIN, MAX);
+    arrayToBeSorted.push(int);
   }
 
   displayArray();
@@ -195,16 +196,17 @@ function indexOfMin(arr, i) {
 
 async function selectionSort(arr) {
   let n = arr.length;
-  for (let i = 0; i < n; i++) {
-    let min = indexOfMin(arr, i);
-    let temp1 = arr[min];
-    let temp2 = arr[i];
-    arr[min] = temp2;
-    arr[i] = temp1;
-    displayArray();
+  for (let currentElement = 0; currentElement < n; currentElement++) {
+    let mimElement = indexOfMin(arr, currentElement);
+    let temp1 = arr[mimElement];
+    let temp2 = arr[currentElement];
+    arr[mimElement] = temp2;
+    arr[currentElement] = temp1;
+    displayArraySelectionSort(currentElement,mimElement);
     await sleep(sleepTime);
   }
 
+  displaySortedArray();
   return arr;
 }
 // let unsorted = [1, 3, 6, 2, 9, 8];
