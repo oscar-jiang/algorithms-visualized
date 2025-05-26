@@ -191,7 +191,8 @@ function updateEdges() {
     enter => enter.append("line")
       .attr('class', 'node-edge')
       .attr('stroke', '#000000')
-      .attr('stroke-width', 3)
+      .attr('stroke-width', 2)
+      .attr('stroke-opacity', 0.7)
       .attr('x1', d => {
           const dx = d.target.x - d.source.x;
           const dy = d.target.y - d.source.y;

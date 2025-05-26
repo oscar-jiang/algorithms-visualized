@@ -82,19 +82,15 @@ function createEdge(event) {
     sourceNode = null;
     return;
   }
-
+  
   if (clickedNode.remainingDegree === 0) {
     sourceNode = null;
     return;
   }
 
-
-
   if (sourceNode === null) {
     sourceNode = clickedNode;
   } else if (sourceNode.id !== clickedNode.id) {
-
-
     edges.push({
       source: sourceNode,
       target: clickedNode
@@ -138,6 +134,7 @@ function updateGraph() {
   updateNodeLabels();
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute
 
 function updateNodes() {
   GRAPH.selectAll('circle.node')
@@ -193,7 +190,8 @@ function updateEdges() {
     enter => enter.append("line")
       .attr('class', 'node-edge')
       .attr('stroke', '#000000')
-      .attr('stroke-width', 3)
+      .attr('stroke-width', 2)
+      .attr('stroke-opacity', 0.7)
       .attr('x1', d => {
           const dx = d.target.x - d.source.x;
           const dy = d.target.y - d.source.y;
