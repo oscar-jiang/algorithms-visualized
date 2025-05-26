@@ -1,3 +1,38 @@
+// VARIABLES
+const MIN = 5;
+const MAX = 100;
+let sleepTime = 150; // in ms
+
+// Array holds an list of integers
+let arrayToBeSorted = [];
+
+// FUNCTIONS
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function isEmpty(arr) {
+  return arr.length === 0;
+}
+
+// Will clear the array first
+function generateRandomArray(n) {
+  arrayToBeSorted = [];
+
+  for (let i = 0; i < n; i++) {
+    arrayToBeSorted.push(getIntFromRange(MIN, MAX));
+  }
+
+  displayArray();
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getIntFromRange(min, max){
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max); 
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+}
+
 /*
  * Types of sorting algorithms
  * Bubble, Insertion, Selection, Quick, Merge
@@ -37,7 +72,6 @@ function MSort(arr, low, high) {
 }
 
 // CONSTRAINT: arr is a array on integers.
-// this function is for the Havel-Hakimi Algorithm
 function mergeSort(arr) {
   let size = arr.length;
   MSort(arr, 0, size-1);
@@ -151,24 +185,24 @@ function quickSort(arr) {
 function indexOfMin(arr, i) {
   let minIndex = i;
   let n = arr.length;
-  for (let j = i; j < n - i; j++) {
-    if (arr[j] < arr[i]) {
+  for (let j = i; j < n; j++) {
+    if (arr[j] < arr[minIndex]) {
       minIndex=j;
     }
   }
-
   return minIndex;
 }
 
-function selectionSort(arr) {
+async function selectionSort(arr) {
   let n = arr.length;
   for (let i = 0; i < n; i++) {
-    let min = indexOfMin(arr, i); 
-
+    let min = indexOfMin(arr, i);
     let temp1 = arr[min];
     let temp2 = arr[i];
     arr[min] = temp2;
     arr[i] = temp1;
+    displayArray();
+    await sleep(sleepTime);
   }
 
   return arr;

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/home-page.css">
     <link rel="stylesheet" href="styles/application-preview.css">
-    <link rel="stylesheet" href="styles/graph-page.css">
+    <link rel="stylesheet" href="styles/sorting.css">
   </head>
 
   <body>
@@ -41,7 +41,7 @@
       <h1>Sorting Algorithms</h1>
 
       <div class="center-canvas">
-        <div class="canvas"><svg id="graph" width="875" height="400"></svg>
+        <div class="canvas"><svg id="graph" width="875" height="410"></svg>
       </div>
 
       </div>
@@ -50,10 +50,12 @@
         <div>
           <h2 class="about-heading">Settings</h2>
         </div>
+
         <div>
           <button class="js-generate-array">Generate Array</button>
-          <button></button>
-          <button></button>
+          <button class="js-sort-array">Play</button>
+          <button class="js-generate-array">Pause</button>
+          <button class="js-generate-array">Reset</button>
         </div>
 
       </div>
@@ -72,7 +74,9 @@
     <script src="//d3js.org/d3.v7.min.js"></script>
 
     <script src="scripts/general/header-sidebar-buttons.js"></script>
+    <script src="scripts/sorting-webpage/sorting-visual.js"></script>
     <script src="scripts/sorting-webpage/sorting-algorithms.js"></script>
     <script src="scripts/sorting-webpage/sorting-buttons.js"></script>
+    <script src="scripts/sorting-webpage/sorting-init.js"></script>
   </body>
 </html>

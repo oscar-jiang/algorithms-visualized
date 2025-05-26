@@ -1,0 +1,69 @@
+body {
+    font-family: Geologica, Arial, Helvetica, sans-serif;
+
+    background-color: #F4F4F4;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.main-dashboard {
+    font-family: Geologica, Arial, Helvetica, sans-serif;
+
+    width: 900px;
+    min-width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* background-color: lightblue; */
+    height: 700px;
+}
+
+#graph {
+    border-radius: 5px;
+    border-color: rgb(199, 199, 199);
+    border-style: solid;
+    border-width: 1px;
+
+    background-color: white;
+}
+
+.center-canvas {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  margin: 10px;
+}
+
+.right-paragraph {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.about-heading {
+    margin: 0;
+    margin-top:10px;
+    margin-left: 10px;
+}
+
+.graph-editor-about-section {
+    margin-top: 15px;
+    font-family: Geologica, Arial, Helvetica, sans-serif;
+
+    background-color: white;
+
+    border-radius: 5px;
+    border-color: rgb(199, 199, 199);
+    border-style: solid;
+    border-width: 1px;
+
+    width: 875px;
+    min-height: auto;
+    padding-bottom: 10px;
+}
