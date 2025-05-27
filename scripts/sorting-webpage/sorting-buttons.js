@@ -3,5 +3,5 @@ document.querySelector('.js-generate-array').addEventListener('click', () => {
 });
 
 document.querySelector('.js-sort-array').addEventListener('click', () => {
-  selectionSort(arrayToBeSorted);
+  mergeSort(arrayToBeSorted);
 });

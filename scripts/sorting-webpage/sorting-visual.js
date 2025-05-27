@@ -11,6 +11,10 @@ const ANIMATION_TIME = 500;
 function displayArray() {
   const length = arrayToBeSorted.length;
 
+  if (length === 0) {
+    return;
+  }
+
   GRAPH.selectAll('rect')
     .data(arrayToBeSorted, d => d.id)
     .join('rect')
@@ -95,4 +99,24 @@ function displayAnimationSelectionSortSwap(i, j) {
     .transition()
     .duration(ANIMATION_TIME)
     .attr('x', i * (WIDTH / length));
+}
+
+function displayArrayMergeSort(low, high) {
+  const length = arrayToBeSorted.length;
+  
+  GRAPH.selectAll('rect')
+    .data(arrayToBeSorted, d => d.id)
+    .join('rect')
+    .attr('id', (d, i) => `bar-${d.id}`)
+    .attr('width', WIDTH / length - BAR_SPACING)
+    .attr('height', d => d.value * BAR_HEIGHT_SCALE)
+    .attr('x', (d, i) => i * (WIDTH / length))
+    .attr('y', d => HEIGHT - d.value * BAR_HEIGHT_SCALE)
+    .attr('fill', (d, i) => {
+      if (i >= low && i <= high) {
+        return 'gold';
+      } else {
+        return 'lightblue';
+      }
+    });
 }

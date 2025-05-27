@@ -1,7 +1,7 @@
 // VARIABLES
 const MIN = 5;
 const MAX = 100;
-let sleepTime = 50; // in ms
+let sleepTime = 150; // in ms
 let nextId = 0;
 
 // Array holds an list of integers
@@ -50,41 +50,53 @@ function getIntFromRange(min, max){
 /*
  * --- MERGE SORT ---
 */
-function Merge(arr, low, mid, high) {
+async function Merge(arr, low, mid, high) {
   let tempArr = [];
 
   let a = low;
   let b = mid + 1;
 
-  for (let i = low; i <= high; i++) {
-    if (a <= mid && (b > high || arr[a].value < arr[b].value)) {
-      tempArr.push(arr[a++].value);
+  while (a <= mid && b <= high) {
+    if (arr[a].value <= arr[b].value) {
+      tempArr.push(arr[a++]);
     } else {
-      tempArr.push(arr[b++].value);
+      tempArr.push(arr[b++]);
     }
   }
 
-  for (let i = low; i <= high; i++) {
-    arr[i].value = tempArr[i-low];
+  while (a <= mid) {
+    tempArr.push(arr[a++]);
   }
+
+  while (b <= high) {
+    tempArr.push(arr[b++]);
+  }
+
+  for (let i = 0; i < tempArr.length; i++) {
+    arr[low + i] = tempArr[i];
+  }
+
+  displayArrayMergeSort(low, high);
+  await sleep(sleepTime);
 }
 
-function MSort(arr, low, high) {
+async function MSort(arr, low, high) {
   if (low < high) {
     let mid = Math.floor((low + high) / 2);
 
-    MSort(arr, low, mid);
-    MSort(arr, mid+1, high); 
+    await MSort(arr, low, mid);
+    await MSort(arr, mid+1, high); 
 
-    Merge(arr, low, mid, high);
+    await Merge(arr, low, mid, high);
   }
 }
 
 // CONSTRAINT: arr is a array on integers.
-function mergeSort(arr) {
+async function mergeSort(arr) {
   let size = arr.length;
-  MSort(arr, 0, size-1);
+  await MSort(arr, 0, size-1);
 
+  displaySortedArray();
   return arr;
 }
 
