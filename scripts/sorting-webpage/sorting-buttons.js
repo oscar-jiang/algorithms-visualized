@@ -1,7 +1,22 @@
 document.querySelector('.js-generate-array').addEventListener('click', () => {
-  generateRandomArray(40); // 300 max? 
+  generateRandomArray(numItems); 
 });
 
 document.querySelector('.js-sort-array').addEventListener('click', () => {
-  quickSort(arrayToBeSorted);
+  displayPlayingStatus();
+  determineSortingAlgorithm(algo);
 });
+
+document.getElementById('algorithm').onchange = (event) => {
+  algo = event.target.value;
+};
+
+document.querySelector('.playback-speed-slider').onchange = (event) => {
+  sleepTime = event.target.value;
+  displaySpeed();
+};
+
+document.querySelector('.num-items-slider').onchange = (event) => {
+  numItems = event.target.value;
+  displayNumItems();
+};

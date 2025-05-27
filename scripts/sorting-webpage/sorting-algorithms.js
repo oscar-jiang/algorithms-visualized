@@ -3,6 +3,8 @@ const MIN = 5;
 const MAX = 100;
 let sleepTime = 50; // in ms
 let nextId = 0;
+let numItems = 40;
+let algo = 'merge';
 
 // Array holds an list of integers
 let arrayToBeSorted = [];
@@ -16,10 +18,30 @@ function isEmpty(arr) {
   return arr.length === 0;
 }
 
+function determineSortingAlgorithm(v) {
+  switch (v) {
+    case 'merge':
+      mergeSort(arrayToBeSorted);
+      break;
+    case 'quick':
+      quickSort(arrayToBeSorted);
+      break;
+    case 'selection':
+      selectionSort(arrayToBeSorted);
+      break;
+    case 'bubble': 
+      bubbleSort(arrayToBeSorted);
+      break;
+    default:
+      mergeSort(arrayToBeSorted);
+  }
+}
+
 // Will clear the array first
 function generateRandomArray(n) {
   arrayToBeSorted = [];
   nextId = 0;
+  displayUnsortedStatus();
 
   for (let i = 0; i < n; i++) {
     let int = getIntFromRange(MIN, MAX);
@@ -97,6 +119,7 @@ async function mergeSort(arr) {
   await MSort(arr, 0, size-1);
 
   displaySortedArray();
+  displayFinishedStatus();
   return arr;
 }
 
@@ -140,6 +163,7 @@ async function bubbleSort(arr) {
   }
 
   displaySortedArray();
+  displayFinishedStatus();
   return arr;
 }
 
@@ -194,6 +218,7 @@ async function quickSort(arr) {
   await qSort(arr, 0, n-1);
 
   displaySortedArray();
+  displayFinishedStatus();
   return arr;
 }
 
@@ -243,6 +268,7 @@ async function selectionSort(arr) {
   }
 
   displaySortedArray();
+  displayFinishedStatus();
   return arr;
 }
 // let unsorted = [1, 3, 6, 2, 9, 8];

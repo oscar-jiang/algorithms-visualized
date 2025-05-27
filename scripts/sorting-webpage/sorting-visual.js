@@ -166,3 +166,23 @@ function displayArrayQuickSort(low, high, a, b, pivot) {
       }
     });
 }
+
+function displayFinishedStatus() {
+  document.getElementById('status').innerHTML = "Sorted";
+}
+
+function displayUnsortedStatus() {
+  document.getElementById('status').innerHTML = "Unsorted";
+}
+
+function displayPlayingStatus() {
+  document.getElementById('status').innerHTML = "Playing...";
+}
+
+function displaySpeed() {
+  document.getElementById('display-current-value-playback-speed').innerHTML = `Speed: ${sleepTime}ms`;
+}
+
+function displayNumItems() {
+  document.getElementById('display-current-value-num-items').innerHTML = `Number of items: ${numItems}`;
+}

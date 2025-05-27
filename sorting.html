@@ -44,37 +44,80 @@
 
     <div class="main-dashboard">
       <h1>Sorting Algorithms</h1>
-
       <div class="center-canvas">
-        <div class="canvas"><svg id="graph" width="875" height="410"></svg>
+        <div class="canvas">
+          <svg id="graph" width="875" height="410">
+          </svg>
+          <div id="status">Unsorted</div>
+        </div>
       </div>
 
+      <div class="button-container-play-etc">
+        <button class="base-play-buttons js-sort-array">Play</button>
+        <button class="base-play-buttons js-generate-array">Generate Array</button>
+      </div>
+    
+    <div class="graph-editor-about-section">
+      <div>
+        <h2 class="about-heading">Settings</h2>
       </div>
 
-      <div class="graph-editor-about-section">
-        <div>
-          <h2 class="about-heading">Settings</h2>
+      <div class="options-container">
+        <div class="control-group">
+          <div class="control-group-heading">
+            <h3 class="about-heading">Sorting Algorithm</h5>
+          </div>
+          <div class="control-group-custom">
+            <select id="algorithm">
+              <option value="bubble">Bubble Sort</option>
+              <option value="merge" selected>Merge Sort</option>
+              <option value="quick">Quick Sort</option>
+              <option value="selection">Selection Sort</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <button class="js-generate-array">Generate Array</button>
-          <button class="js-sort-array">Play</button>
-          <button class="js-generate-array">Pause</button>
-          <button class="js-generate-array">Reset</button>
+        <div class="control-group">
+          <div class="control-group-heading">
+            <h3 class="about-heading">Array Settings</h5>
+          </div>
+          <div class="control-group-custom">
+            <span id="display-current-value-num-items">Number of Items: 40</span>
+            <div class="slider-wrapper">
+              <span class="slider-label">10</span>
+              <input type="range" class="num-items-slider" min="10" max="300" value="40">
+              <span class="slider-label">300</span>
+            </div>
+          </div>
         </div>
 
-      </div>
-
-      <div class="graph-editor-about-section">
-        <div>
-          <h2 class="about-heading">👋About</h2>
+        <div class="control-group">
+          <div class="control-group-heading">
+            <h3 class="about-heading">Playback</h5>
+          </div>
+          <div class="control-group-custom">
+            <span id="display-current-value-playback-speed">Speed: 50ms</span>
+            <div class="slider-wrapper">
+              <span class="slider-label">0</span>
+              <input type="range" class="playback-speed-slider" min="0" max="500" value="50">
+              <span class="slider-label">500</span>
+            </div>
+          </div>
         </div>
-        <div>
 
-        </div>
-          <p class="right-paragraph">This undirected graph editor was created inspired by another graph editor I encounted in my data structures and algorithms class, UBC CPSC 221. Having created this project using JavaScript with the D3.js library, I aimed to challenge myself to improve my understanding of graphs and the Havel-Hakimi algorithm by extending this project into a game. Start graphing!!!</p>
       </div>
     </div>
+
+    <div class="graph-editor-about-section">
+      <div>
+        <h2 class="about-heading">👋About</h2>
+      </div>
+      <div>
+
+      </div>
+        <p class="right-paragraph"></p>
+    </div>
+  </div>
 
     <script src="//d3js.org/d3.v7.min.js"></script>
 

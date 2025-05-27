@@ -1,35 +1,35 @@
 body {
-    font-family: Geologica, Arial, Helvetica, sans-serif;
+  font-family: Geologica, Arial, Helvetica, sans-serif;
 
-    background-color: #F4F4F4;
+  background-color: #F4F4F4;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
 .main-dashboard {
-    font-family: Geologica, Arial, Helvetica, sans-serif;
+  font-family: Geologica, Arial, Helvetica, sans-serif;
 
-    width: 900px;
-    min-width: 900px;
+  width: 900px;
+  min-width: 900px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    /* background-color: lightblue; */
-    height: 700px;
+  /* background-color: lightblue; */
+  height: 700px;
 }
 
 #graph {
-    border-radius: 5px;
-    border-color: rgb(199, 199, 199);
-    border-style: solid;
-    border-width: 1px;
+  border-radius: 5px;
+  border-color: rgb(199, 199, 199);
+  border-style: solid;
+  border-width: 1px;
 
-    background-color: white;
+  background-color: white;
 }
 
 .center-canvas {
@@ -40,30 +40,121 @@ body {
 }
 
 .right-paragraph {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .about-heading {
-    margin: 0;
-    margin-top:10px;
-    margin-left: 10px;
+  margin: 0;
+  margin-top:10px;
+  margin-left: 10px;
 }
 
 .graph-editor-about-section {
-    margin-top: 15px;
-    font-family: Geologica, Arial, Helvetica, sans-serif;
+  margin-top: 15px;
+  font-family: Geologica, Arial, Helvetica, sans-serif;
 
-    background-color: white;
+  background-color: white;
 
-    border-radius: 5px;
-    border-color: rgb(199, 199, 199);
-    border-style: solid;
-    border-width: 1px;
+  border-radius: 5px;
+  border-color: rgb(199, 199, 199);
+  border-style: solid;
+  border-width: 1px;
 
-    width: 875px;
-    min-height: auto;
-    padding-bottom: 10px;
+  width: 875px;
+  min-height: auto;
+  padding-bottom: 10px;
+}
+
+.base-play-buttons {
+  margin-right: 10px;
+  padding: 8px 12px;
+  font-weight: bold;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.base-play-buttons:hover {
+  background-color: #429647;
+}
+
+.canvas{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+#status {
+  position: absolute;
+
+  top: 10px;
+  left: 10px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  
+  padding: 5px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  border-radius: 5px;
+
+  z-index: 10;
+}
+
+.control-group {
+  border-bottom: 1px dashed #ccc;
+  /* background-color: lightblue; */
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.control-group-custom {
+  margin-top:5px;
+  margin-left: 10px;
+}
+
+.control-group-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding-bottom: 0.5rem;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+
+  width: 70%;
+}
+
+.slider-label {
+  font-size: 0.9rem;
+  color: #444;
+  width: 30px;
+  text-align: center;
+}
+
+.playback-speed-slider, .num-items-slider {
+  flex: 1;
+}
+
+#algorithm {
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+
+  font-family: Geologica, Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
