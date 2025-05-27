@@ -5,14 +5,11 @@ document.querySelector('.js-home-button').addEventListener('click', () => {
     location.href='home-page.html';
 });
 document.querySelector('.js-about-button').addEventListener('click', () => {
-    location.href='about-page.html';
+    location.href='https://github.com/oscar-jiang/silver-fishstick';
 });
 document.querySelector('.js-h-h-button').addEventListener('click', () => {
     location.href='havel-hakimi-game.html';
 });
 document.querySelector('.js-sorting-button').addEventListener('click', () => {
     location.href='sorting.html';
-});
-document.querySelector('.js-github-button').addEventListener('click', () => {
-    location.href='https://github.com/oscar-jiang/silver-fishstick';
 });

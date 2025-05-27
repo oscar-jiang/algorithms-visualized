@@ -67,3 +67,13 @@
 .base-button-header:hover {
     background-color: rgb(199, 199, 199);
 }
+
+.about-github-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-button-about-text {
+    margin-right: 5px;
+}
