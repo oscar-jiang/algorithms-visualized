@@ -103,7 +103,7 @@ function displayAnimationSelectionSortSwap(i, j) {
 
 function displayArrayMergeSort(low, high) {
   const length = arrayToBeSorted.length;
-  
+
   GRAPH.selectAll('rect')
     .data(arrayToBeSorted, d => d.id)
     .join('rect')
@@ -115,6 +115,52 @@ function displayArrayMergeSort(low, high) {
     .attr('fill', (d, i) => {
       if (i >= low && i <= high) {
         return 'gold';
+      } else {
+        return 'lightblue';
+      }
+    });
+}
+
+function displayArrayBubbleSort(a, b, c) {
+  const length = arrayToBeSorted.length;
+
+  GRAPH.selectAll('rect')
+    .data(arrayToBeSorted, d => d.id)
+    .join('rect')
+    .attr('id', (d, i) => `bar-${d.id}`)
+    .attr('width', WIDTH / length - BAR_SPACING)
+    .attr('height', d => d.value * BAR_HEIGHT_SCALE)
+    .attr('x', (d, i) => i * (WIDTH / length))
+    .attr('y', d => HEIGHT - d.value * BAR_HEIGHT_SCALE)
+    .attr('fill', (d, i) => {
+      if (i === a || i === b) {
+        return 'gold';
+      } else if (i >= c) {
+        return 'green';
+      } else {
+        return 'lightblue';
+      }
+    });
+}
+
+function displayArrayQuickSort(low, high, a, b, pivot) {
+  const length = arrayToBeSorted.length;
+
+  GRAPH.selectAll('rect')
+    .data(arrayToBeSorted, d => d.id)
+    .join('rect')
+    .attr('id', (d, i) => `bar-${d.id}`)
+    .attr('width', WIDTH / length - BAR_SPACING)
+    .attr('height', d => d.value * BAR_HEIGHT_SCALE)
+    .attr('x', (d, i) => i * (WIDTH / length))
+    .attr('y', d => HEIGHT - d.value * BAR_HEIGHT_SCALE)
+    .attr('fill', (d, i) => {
+      if (i === pivot) {
+        return 'gold';
+      } else if (i === a) {
+        return 'red';
+      } else if (i === b) {
+        return 'orange';
       } else {
         return 'lightblue';
       }

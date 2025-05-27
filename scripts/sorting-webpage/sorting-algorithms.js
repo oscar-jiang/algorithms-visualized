@@ -1,7 +1,7 @@
 // VARIABLES
 const MIN = 5;
 const MAX = 100;
-let sleepTime = 150; // in ms
+let sleepTime = 50; // in ms
 let nextId = 0;
 
 // Array holds an list of integers
@@ -113,7 +113,7 @@ async function mergeSort(arr) {
 /*
  * --- BUBBLE SORT ---
 */
-function bubbleSort(arr) {
+async function bubbleSort(arr) {
   let n = arr.length; 
   let swapped; 
 
@@ -128,6 +128,9 @@ function bubbleSort(arr) {
         arr[j] = temp2;
         arr[j+1] = temp1;
         swapped = true;
+
+        displayArrayBubbleSort(j , j+1, n-i-1);
+        await sleep(sleepTime);
       }
     }
 
@@ -136,6 +139,7 @@ function bubbleSort(arr) {
     }
   }
 
+  displaySortedArray();
   return arr;
 }
 
@@ -151,7 +155,7 @@ function bubbleSort(arr) {
 /*
  * --- QUICK SORT ---
 */
-function partition(arr, low, high) {
+async function partition(arr, low, high) {
   let pivot = arr[high].value;
   let i = low - 1;
 
@@ -162,6 +166,9 @@ function partition(arr, low, high) {
       let temp2 = arr[j];
       arr[i] = temp2;
       arr[j] = temp1;
+
+      displayArrayQuickSort(low, high, i, j , high);
+      await sleep(sleepTime);
     }
   }
 
@@ -173,19 +180,20 @@ function partition(arr, low, high) {
   return i+1;
 }
 
-function qSort(arr, low, high) {
+async function qSort(arr, low, high) {
   if (low < high) {
-    let p = partition(arr, low, high);
+    let p = await partition(arr, low, high);
 
-    qSort(arr,low,p - 1);
-    qSort(arr, p + 1, high);
+    await qSort(arr,low,p - 1);
+    await qSort(arr, p + 1, high);
   }
 }
 
-function quickSort(arr) {
+async function quickSort(arr) {
   let n = arr.length; 
-  qSort(arr, 0, n-1);
+  await qSort(arr, 0, n-1);
 
+  displaySortedArray();
   return arr;
 }
 
