@@ -4,6 +4,8 @@ const HEIGHT = 410;
 const BAR_HEIGHT_SCALE = 4;
 const BAR_SPACING = 2;
 const ANIMATION_TIME = 500;
+const FINISHED_COLOUR = '#34d248';
+const DEFAULT_COLOUR = 'lightblue';
 
 // FUNCTIONS
 
@@ -23,7 +25,7 @@ function displayArray() {
     .attr('height', d => d.value * BAR_HEIGHT_SCALE)
     .attr('x', (d, i) => i * (WIDTH / length))
     .attr('y', d => HEIGHT - d.value * BAR_HEIGHT_SCALE)
-    .attr('fill', 'lightblue');
+    .attr('fill', DEFAULT_COLOUR);
 }
 function displaySortedArray() {
   const length = arrayToBeSorted.length;
@@ -36,7 +38,7 @@ function displaySortedArray() {
     .attr('height', d => d.value * BAR_HEIGHT_SCALE)
     .attr('x', (d, i) => i * (WIDTH / length))
     .attr('y', d => HEIGHT - d.value * BAR_HEIGHT_SCALE)
-    .attr('fill', 'green');
+    .attr('fill', FINISHED_COLOUR);
 }
 
 function displayArraySelectionSort(currentElement, minElement) {
@@ -56,9 +58,9 @@ function displayArraySelectionSort(currentElement, minElement) {
       } else if (i === minElement) {
          return 'aquamarine'
       } else if ( i < currentElement){
-        return 'green';
+        return FINISHED_COLOUR;
       } else {
-        return 'lightblue';
+        return DEFAULT_COLOUR;
       }
     });
 }
@@ -76,13 +78,13 @@ function displayArraySelectionSortFindMin(startIndex, compareIndex, minIndex) {
     .attr('y', d => HEIGHT - d.value * BAR_HEIGHT_SCALE)
     .attr('fill', (d,i) => {
       if (i < startIndex) {
-        return 'green';
+        return FINISHED_COLOUR;
       } else if (i === minIndex) {
          return 'tomato'
       } else if ( i === compareIndex){
         return 'gold';
       } else {
-        return 'lightblue';
+        return DEFAULT_COLOUR;
       }
     });
 }
@@ -116,7 +118,7 @@ function displayArrayMergeSort(low, high) {
       if (i >= low && i <= high) {
         return 'gold';
       } else {
-        return 'lightblue';
+        return DEFAULT_COLOUR;
       }
     });
 }
@@ -136,9 +138,9 @@ function displayArrayBubbleSort(a, b, c) {
       if (i === a || i === b) {
         return 'gold';
       } else if (i >= c) {
-        return 'green';
+        return FINISHED_COLOUR;
       } else {
-        return 'lightblue';
+        return DEFAULT_COLOUR;
       }
     });
 }
@@ -162,7 +164,7 @@ function displayArrayQuickSort(low, high, a, b, pivot) {
       } else if (i === b) {
         return 'orange';
       } else {
-        return 'lightblue';
+        return DEFAULT_COLOUR;
       }
     });
 }

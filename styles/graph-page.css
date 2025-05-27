@@ -153,8 +153,11 @@ body {
 }
 
 .graph-editor-about-section {
+
     margin-top: 15px;
     font-family: Geologica, Arial, Helvetica, sans-serif;
+
+    padding-bottom: 10px;
 
     background-color: white;
 
@@ -164,5 +167,5 @@ body {
     border-width: 1px;
 
     width: 875px;
-    height: 175px;
+    height: auto;
 }
