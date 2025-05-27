@@ -1,7 +1,8 @@
 // VARIABLES
 const MIN = 5;
 const MAX = 100;
-let sleepTime = 150; // in ms
+let sleepTime = 50; // in ms
+let nextId = 0;
 
 // Array holds an list of integers
 let arrayToBeSorted = [];
@@ -18,10 +19,17 @@ function isEmpty(arr) {
 // Will clear the array first
 function generateRandomArray(n) {
   arrayToBeSorted = [];
+  nextId = 0;
 
   for (let i = 0; i < n; i++) {
     let int = getIntFromRange(MIN, MAX);
-    arrayToBeSorted.push(int);
+
+    let object = {
+      id: nextId++,
+      value: int
+    };
+
+    arrayToBeSorted.push(object);
   }
 
   displayArray();
@@ -49,15 +57,15 @@ function Merge(arr, low, mid, high) {
   let b = mid + 1;
 
   for (let i = low; i <= high; i++) {
-    if (a <= mid && (b > high || arr[a] < arr[b])) {
-      tempArr.push(arr[a++]);
+    if (a <= mid && (b > high || arr[a].value < arr[b].value)) {
+      tempArr.push(arr[a++].value);
     } else {
-      tempArr.push(arr[b++]);
+      tempArr.push(arr[b++].value);
     }
   }
 
   for (let i = low; i <= high; i++) {
-    arr[i] = tempArr[i-low];
+    arr[i].value = tempArr[i-low];
   }
 }
 
@@ -101,7 +109,7 @@ function bubbleSort(arr) {
     swapped = false; 
 
     for (let j = 0; j < n - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
+      if (arr[j].value > arr[j + 1].value) {
         // performing swap
         let temp1 = arr[j];
         let temp2 = arr[j + 1];
@@ -132,11 +140,11 @@ function bubbleSort(arr) {
  * --- QUICK SORT ---
 */
 function partition(arr, low, high) {
-  let pivot = arr[high];
+  let pivot = arr[high].value;
   let i = low - 1;
 
   for (let j = low; j <= high - 1; j++) {
-    if (arr[j] < pivot) {
+    if (arr[j].value < pivot) {
       i++;
       let temp1 = arr[i];
       let temp2 = arr[j];
@@ -183,12 +191,16 @@ function quickSort(arr) {
  * --- SELECTION SORT ---
 */
 
-function indexOfMin(arr, i) {
+async function indexOfMin(arr, i) {
   let minIndex = i;
   let n = arr.length;
   for (let j = i; j < n; j++) {
-    if (arr[j] < arr[minIndex]) {
+    displayArraySelectionSortFindMin(i, j, minIndex);
+    await sleep(sleepTime);
+    if (arr[j].value < arr[minIndex].value) {
       minIndex=j;
+      displayArraySelectionSortFindMin(i, j, minIndex);
+      await sleep(sleepTime);
     }
   }
   return minIndex;
@@ -197,12 +209,16 @@ function indexOfMin(arr, i) {
 async function selectionSort(arr) {
   let n = arr.length;
   for (let currentElement = 0; currentElement < n; currentElement++) {
-    let mimElement = indexOfMin(arr, currentElement);
-    let temp1 = arr[mimElement];
+    let minElement = await indexOfMin(arr, currentElement);
+
+    // displayAnimationSelectionSortSwap(currentElement, minElement);
+    // await sleep(ANIMATION_TIME);
+
+    let temp1 = arr[minElement];
     let temp2 = arr[currentElement];
-    arr[mimElement] = temp2;
+    arr[minElement] = temp2;
     arr[currentElement] = temp1;
-    displayArraySelectionSort(currentElement,mimElement);
+    displayArraySelectionSort(currentElement,minElement);
     await sleep(sleepTime);
   }
 
