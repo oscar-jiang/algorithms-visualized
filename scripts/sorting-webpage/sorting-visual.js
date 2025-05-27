@@ -170,15 +170,15 @@ function displayArrayQuickSort(low, high, a, b, pivot) {
 }
 
 function displayFinishedStatus() {
-  document.getElementById('status').innerHTML = "Sorted";
+  document.getElementById('status').innerHTML = "📊✅Sorted";
 }
 
 function displayUnsortedStatus() {
-  document.getElementById('status').innerHTML = "Unsorted";
+  document.getElementById('status').innerHTML = "📦❓Unsorted";
 }
 
 function displayPlayingStatus() {
-  document.getElementById('status').innerHTML = "Playing...";
+  document.getElementById('status').innerHTML = "🔀🔄Playing...";
 }
 
 function displaySpeed() {
