@@ -2,7 +2,7 @@ document.querySelector('.js-graph-editor-button').addEventListener('click', () =
     location.href='graph-editor.html';
 });
 document.querySelector('.js-home-button').addEventListener('click', () => {
-    location.href='home-page.html';
+    location.href='index.html';
 });
 document.querySelector('.js-about-button').addEventListener('click', () => {
     location.href='https://github.com/oscar-jiang/silver-fishstick';
