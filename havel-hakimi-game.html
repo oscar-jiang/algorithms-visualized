@@ -111,6 +111,32 @@
           </p>
         </div>
       </div>
+
+      <div class="graph-editor-about-section">
+        <div>
+          <h2 class="about-heading">⚙️Havel-Hakimi Algorithm🧠</h2>
+        </div>
+        <p class="right-paragraph">
+          You manually perform this algorithm by writing down the degree sequence seen above then following the pseudocode below.
+        </p>
+        <div class="code-block">
+          <h3 class="subheading-code-block">🧠 Havel-Hakimi Algorithm</h3>
+            <pre><code class="cpp">
+Function havelHakimi(sequence):
+    1. Remove all zeros from the sequence.
+    2. If the sequence is empty:
+        return True
+    3. Sort the sequence in descending order.
+    4. Remove the first element (call it N).
+    5. If N is greater than the length of the remaining sequence:
+        return False
+    6. Subtract 1 from the first N elements of the sequence.
+    7. If any element becomes negative:
+        return False
+    8. Repeat from step 1.
+            </code></pre>
+        </div>
+      </div>
     </div>
 
     <script src="//d3js.org/d3.v7.min.js"></script>
