@@ -9,6 +9,8 @@ document.querySelector('.js-sort-array').addEventListener('click', () => {
 
 document.getElementById('algorithm').onchange = (event) => {
   algo = event.target.value;
+
+  displayCodeBlock();
 };
 
 document.querySelector('.playback-speed-slider').onchange = (event) => {

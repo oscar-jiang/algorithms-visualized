@@ -43,7 +43,7 @@ body {
   margin-right: 10px;
   margin-left: 10px;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
 }
 
 .about-heading {
@@ -64,8 +64,7 @@ body {
   border-width: 1px;
 
   width: 875px;
-  min-height: auto;
-  padding-bottom: 10px;
+  height: auto;
 }
 
 .base-play-buttons {
@@ -139,7 +138,6 @@ body {
 }
 
 .slider-label {
-  font-size: 0.9rem;
   color: #444;
   width: 30px;
   text-align: center;
@@ -157,4 +155,41 @@ body {
 
   font-family: Geologica, Arial, Helvetica, sans-serif;
   font-size: 16px;
+}
+
+.code-block {
+  margin: 10px;
+  padding: 0px;
+
+  background-color: #d9d9d9;
+
+  border-radius: 5px;
+  border-color: rgb(199, 199, 199);
+  border-style: solid;
+  border-width: 1px;
+}
+
+pre {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin: 0;
+
+  border-radius: 5px;
+  border-color: rgb(199, 199, 199);
+  border-style: solid;
+  border-width: 1px;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  display: block;
+}
+
+.subheading-code-block{
+  margin: 0;
 }

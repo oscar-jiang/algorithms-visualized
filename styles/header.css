@@ -18,6 +18,8 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgb(207, 207, 207);
+
+    z-index: 11;
 }
 
 .left-section {
