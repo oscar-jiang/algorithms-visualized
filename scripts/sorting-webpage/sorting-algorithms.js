@@ -18,22 +18,22 @@ function isEmpty(arr) {
   return arr.length === 0;
 }
 
-function determineSortingAlgorithm(v) {
+async function determineSortingAlgorithm(v) {
   switch (v) {
     case 'merge':
-      mergeSort(arrayToBeSorted);
+      await mergeSort(arrayToBeSorted);
       break;
     case 'quick':
-      quickSort(arrayToBeSorted);
+      await quickSort(arrayToBeSorted);
       break;
     case 'selection':
-      selectionSort(arrayToBeSorted);
+      await selectionSort(arrayToBeSorted);
       break;
     case 'bubble': 
-      bubbleSort(arrayToBeSorted);
+      await bubbleSort(arrayToBeSorted);
       break;
     default:
-      mergeSort(arrayToBeSorted);
+      await mergeSort(arrayToBeSorted);
   }
 }
 
