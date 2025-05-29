@@ -92,7 +92,7 @@ Explore and interact with multiple sorting algorithms.
 - Intuitive controls for play, and generating new arrays.
 - Responsive and clean UI powered by D3.js for smooth visualizations.
 
-This tool healps users understand how sorting algorithms work internally by watching step-by-step movements and comprisons.
+This tool helps users understand how sorting algorithms work internally by watching step-by-step movements and comparisons.
 
 ---
 
