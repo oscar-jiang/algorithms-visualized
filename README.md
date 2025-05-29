@@ -6,7 +6,7 @@
 
 ## 🚀 Demo
 
-[Live Website](https://oscar-jiang.github.io/silver-fishstick/)
+[Live Website](https://oscar-jiang.github.io/algorithms-visualized/)
 
 ---
 
